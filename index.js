@@ -1,9 +1,9 @@
 var Fiber = require('fibers');
-var http = require('./lib/http.js');
+var Synchttp = require('./lib/synchttp.js');
 
 // run the supplied code within a fiber
 module.exports = function (instructions) {
     Fiber(function () {
-        instructions(http);
+        instructions(new Synchttp());
     }).run();
 };

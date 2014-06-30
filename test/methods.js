@@ -35,7 +35,7 @@ describe('HTTP methods', function () {
     it('GET', function (done) {
         synchttp(function (http) {
             var path = '/foo/bar/baz';
-            var response = http.get('http://localhost:' + port + path);
+            var response = http.port(port).path(path).get();
             assert(response.path === path);
             done();
         });
@@ -48,7 +48,7 @@ describe('HTTP methods', function () {
                 'bar': 2,
                 'baz': 3
             };
-            var response = http.post('http://localhost:' + port, message);
+            var response = http.port(port).post(message);
             assert(JSON.stringify(response) === JSON.stringify(message));
             done();
         });
