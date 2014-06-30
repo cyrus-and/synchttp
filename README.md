@@ -1,21 +1,14 @@
 synchttp
 ========
 
-Synchronous Node.js HTTP for API testing/automation. It allows to abstract the
-`Content-Type` of the messages and thus to treat payloads as native JavaScript
-objects.
-
-Motivations:
- - perform synchronous HTTP requests is hard with Node.js;
- - in automating some HTTP API task is often needed to use values coming from
-   responses with subsequent requests.
+Synchronous Node.js HTTP for API testing/scripting/automation.
 
 Sample API usage
 ----------------
 
-Assume you have a dummy API for your blog that allows you to first create a post
-and then to add tags. In the following snippet the id of the new post is used to
-add some tags and finally to fetch the whole object as a JSON object.
+Assume you have a dummy API for your blog that allows you to create a post and
+then to add some tags. In the following snippet the id of the new post is used
+to add the tags and to fetch the whole post resource.
 
 ```javascript
 var synchttp = require('synchttp');
