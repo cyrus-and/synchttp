@@ -87,7 +87,7 @@ synchttp(function (http) {
 
 #### Connection parameters
 
-##### contentType
+##### contentType([contentType])
 
 Default `application/json`.
 
