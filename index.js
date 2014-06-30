@@ -2,7 +2,7 @@ var Fiber = require('fibers');
 var http = require('./lib/http.js');
 
 module.exports = function (instructions) {
-    Fiber(function() {
+    Fiber(function () {
         instructions(http);
     }).run();
 };
