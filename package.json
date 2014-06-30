@@ -3,6 +3,13 @@
     "version": "0.0.0",
     "description": "Synchronous Node.js HTTP for API testing/scripting/automation",
     "author": "Andrea Cardaci <cyrus.and@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/cyrus-and/synchttp.git"
+    },
+    "bugs" : {
+        "url" : "http://github.com/cyrus-and/synchttp/issues"
+    },
     "dependencies": {
         "fibers": "1.0.x"
     },
