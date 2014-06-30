@@ -38,6 +38,30 @@ synchttp(function (http) {
 });
 ```
 
+This would result in something like:
+
+```json
+{
+    "_id": "53b1ab76b2029860505e2c18",
+    "title": "Awesome post",
+    "body": "Lorem ipsum...",
+    "tags": [
+        {
+            "_id": "53b1ab76b2029860505e2c19",
+            "label": "nodejs"
+        },
+        {
+            "_id": "53b1ab76b2029860505e2c1a",
+            "label": "javascript"
+        },
+        {
+            "_id": "53b1ab76b2029860505e2c1b",
+            "label": "http"
+        }
+    ]
+}
+```
+
 API
 ---
 
