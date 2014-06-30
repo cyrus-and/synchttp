@@ -1,7 +1,7 @@
 {
     "name": "synchttp",
     "version": "0.0.0",
-    "description": "Synchronous HTTP for Node.js",
+    "description": "Synchronous Node.js HTTP for API testing/automation",
     "author": "Andrea Cardaci <cyrus.and@gmail.com>",
     "dependencies": {
         "fibers": "1.0.x"
