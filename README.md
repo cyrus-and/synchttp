@@ -19,8 +19,10 @@ synchttp(function (http) {
         'body': 'Lorem ipsum...'
     });
 
+    // the path is kept across the following requests...
     http.path('/api/posts/' + response.id + '/tags/');
     ['nodejs', 'javascript', 'http'].forEach(function (tag) {
+        // ... so only the body is needed here!
         http.post({
             'label': tag
         });
