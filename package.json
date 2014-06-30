@@ -1,0 +1,9 @@
+{
+    "name": "synchttp",
+    "version": "0.0.0",
+    "description": "Synchronous HTTP for Node.js",
+    "author": "Andrea Cardaci <cyrus.and@gmail.com>",
+    "dependencies": {
+        "fibers": "1.0.x"
+    }
+}
