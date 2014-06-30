@@ -3,6 +3,11 @@ synchttp
 
 Synchronous Node.js HTTP for API testing/scripting/automation.
 
+Installation
+------------
+
+    npm install synchttp
+
 Sample API usage
 ----------------
 
