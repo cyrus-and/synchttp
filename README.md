@@ -65,6 +65,15 @@ This would result in something like:
 API
 ---
 
+### Content types
+
+Define how raw incoming/outgoing data should be parsed/formatted.
+
+Actually supported:
+
+ - `application/json` or `json`;
+ - `application/x-www-form-urlencoded` or `urlencoded`.
+
 ### module(callback)
 
 Single entry point of this module, it runs `callback` in a synchronous
@@ -115,21 +124,15 @@ synchttp(function (sh) {
 
 Default `application/json`.
 
-Define the `Content-Type` to be used when sending messages to the
-server. Actually supported:
-
- - `application/json` or `json`;
- - `application/x-www-form-urlencoded` or `urlencoded`.
+Define the content type to be used when sending messages to the server. For
+incoming messages instead the `Content-Type` header is used.
 
 ##### wsContentType([contentType])
 
 Default `application/json`.
 
-Define the `Content-Type` to be used when sending/receiving messages to/from the
-server. Actually supported:
-
- - `application/json` or `json`;
- - `application/x-www-form-urlencoded` or `urlencoded`.
+Define the content type to be used when sending/receiving messages to/from the
+server.
 
 ##### host([host])
 
