@@ -36,7 +36,7 @@ function stopServer() {
 
 describe('HTTP methods', function () {
     before(function (done) {
-        startServer(3000, done)
+        startServer(3000, done);
     });
     after(stopServer);
 
@@ -53,7 +53,7 @@ describe('HTTP methods', function () {
 
 describe('Default parameters', function () {
     before(function (done) {
-        startServer(3000, done)
+        startServer(3000, done);
     });
     after(stopServer);
 
@@ -93,7 +93,7 @@ describe('Default parameters', function () {
 
 describe('Custom parameters', function () {
     before(function (done) {
-        startServer(1337, done)
+        startServer(1337, done);
     });
     after(stopServer);
 
