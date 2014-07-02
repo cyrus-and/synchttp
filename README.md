@@ -18,22 +18,22 @@ to add the tags and to fetch the whole post resource.
 ```javascript
 var synchttp = require('synchttp');
 
-synchttp(function (http) {
-    var response = http.path('/api/posts/').post({
+synchttp(function (sh) {
+    var response = sh.path('/api/posts/').post({
         'title': 'Awesome post',
         'body': 'Lorem ipsum...'
     });
 
     // the path is kept across the following requests...
-    http.path('/api/posts/' + response.id + '/tags/');
-    ['nodejs', 'javascript', 'http'].forEach(function (tag) {
+    sh.path('/api/posts/' + response.id + '/tags/');
+    ['nodejs', 'javascript', 'sh'].forEach(function (tag) {
         // ... so only the body is needed here!
-        http.post({
+        sh.post({
             'label': tag
         });
     });
 
-    var post = http.path('/api/posts/' + response.id).get();
+    var post = sh.path('/api/posts/' + response.id).get();
     console.log(JSON.stringify(post, null, 4));
 });
 ```
@@ -79,11 +79,11 @@ of connection parameters so there is no need to repeat parameters that do not
 change in every request.
 
 ```javascript
-synchttp(function (http) {
-    http.host('example.com');
-    http.path('/foo').get(); // GET http://example.com/foo
-    http.path('/bar').get(); // GET http://example.com/bar
-    http.path('/baz').get(); // GET http://example.com/baz
+synchttp(function (sh) {
+    sh.host('example.com');
+    sh.path('/foo').get(); // GET http://example.com/foo
+    sh.path('/bar').get(); // GET http://example.com/bar
+    sh.path('/baz').get(); // GET http://example.com/baz
 });
 ```
 
@@ -92,8 +92,8 @@ can be used. Only the final actions (`get`, `post`, etc.) actually perform the
 communication:
 
 ```javascript
-synchttp(function (http) {
-    http.host('example.com').port(1337).path('/foo/bar/baz').post({
+synchttp(function (sh) {
+    sh.host('example.com').port(1337).path('/foo/bar/baz').post({
         'name': 'value'
     });
 });
@@ -103,9 +103,9 @@ Parameters come with a default value, if the corresponding method is called
 without arguments then the default value is restored:
 
 ```javascript
-synchttp(function (http) {
-    http.host('example.com').get(); // GET http://example.com:3000/
-    http.host().get(); // GET http://localhost:3000/
+synchttp(function (sh) {
+    sh.host('example.com').get(); // GET http://example.com:3000/
+    sh.host().get(); // GET http://localhost:3000/
 });
 ```
 
@@ -157,24 +157,24 @@ Default `undefined` (no authentication).
 
 Define the basic HTTP authentication to use.
 
-#### Actions
+#### HTTP Actions
 
 These methods return the received payload as a JavaScript object according to
 the `Content-Type` returned by the server (if possible). An exception of type
 `Error` is thrown in case of errors.
 
-##### synchttp.get()
+##### get()
 
 Perform an HTTP `GET`.
 
-##### synchttp.post(message)
+##### post(message)
 
 Perform an HTTP `POST`.
 
-##### synchttp.put(message)
+##### put(message)
 
 Perform an HTTP `PUT`.
 
-##### synchttp.delete()
+##### delete()
 
 Perform an HTTP `DELETE`.
