@@ -12,7 +12,8 @@
         "url" : "http://github.com/cyrus-and/synchttp/issues"
     },
     "dependencies": {
-        "fibers": "1.0.x"
+        "fibers": "1.0.x",
+        "ws": "0.4.x"
     },
     "devDependencies": {
         "mocha": "*"

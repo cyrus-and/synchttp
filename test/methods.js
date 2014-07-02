@@ -100,7 +100,7 @@ describe('Custom parameters', function () {
     it('with body', function (done) {
         synchttp(function (http) {
             var response = http
-                .contentType('application/x-www-form-urlencoded')
+                .httpContentType('application/x-www-form-urlencoded')
                 .host('127.0.0.1')
                 .port('1337')
                 .path('/foo?bar=baz')
@@ -122,7 +122,7 @@ describe('Custom parameters', function () {
     it('without body', function (done) {
         synchttp(function (http) {
             var response = http
-                .contentType('application/x-www-form-urlencoded')
+                .httpContentType('application/x-www-form-urlencoded')
                 .host('127.0.0.1')
                 .port('1337')
                 .path('/foo?bar=baz')
@@ -142,7 +142,7 @@ describe('Custom parameters', function () {
     it('for methods that do not allow the body', function (done) {
         synchttp(function (http) {
             var response = http
-                .contentType('application/x-www-form-urlencoded')
+                .httpContentType('application/x-www-form-urlencoded')
                 .host('127.0.0.1')
                 .port('1337')
                 .path('/foo?bar=baz')
