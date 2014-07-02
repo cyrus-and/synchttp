@@ -103,7 +103,10 @@ describe('Custom parameters', function () {
                 .httpContentType('application/x-www-form-urlencoded')
                 .host('127.0.0.1')
                 .port('1337')
-                .path('/foo?bar=baz')
+                .path('/foo')
+                .query({
+                    'bar': 'baz'
+                })
                 .headers({
                     'foo': 'bar'
                 })
@@ -125,7 +128,10 @@ describe('Custom parameters', function () {
                 .httpContentType('application/x-www-form-urlencoded')
                 .host('127.0.0.1')
                 .port('1337')
-                .path('/foo?bar=baz')
+                .path('/foo')
+                .query({
+                    'bar': 'baz'
+                })
                 .headers({
                     'foo': 'bar'
                 })
@@ -145,7 +151,10 @@ describe('Custom parameters', function () {
                 .httpContentType('application/x-www-form-urlencoded')
                 .host('127.0.0.1')
                 .port('1337')
-                .path('/foo?bar=baz')
+                .path('/foo')
+                .query({
+                    'bar': 'baz'
+                })
                 .headers({
                     'foo': 'bar'
                 })
