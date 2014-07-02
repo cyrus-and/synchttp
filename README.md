@@ -111,11 +111,21 @@ synchttp(function (sh) {
 
 #### Connection parameters
 
-##### contentType([contentType])
+##### httpContentType([contentType])
 
 Default `application/json`.
 
 Define the `Content-Type` to be used when sending messages to the
+server. Actually supported:
+
+ - `application/json` or `json`;
+ - `application/x-www-form-urlencoded` or `urlencoded`.
+
+##### wsContentType([contentType])
+
+Default `application/json`.
+
+Define the `Content-Type` to be used when sending/receiving messages to/from the
 server. Actually supported:
 
  - `application/json` or `json`;
@@ -178,3 +188,22 @@ Perform an HTTP `PUT`.
 ##### delete()
 
 Perform an HTTP `DELETE`.
+
+#### WebSocket actions
+
+Send and receive messages through WebSockets; messages are properly
+parsed/stringified according to the value of the `wsContentType` parameter.
+
+##### ws()
+
+Try to establish a WebSocket to the server. A new WebSocket is screated whenever
+this method is called with a different resulting URL (according to the
+connection parameters).
+
+##### send(message)
+
+Send a message through the WebSocket.
+
+##### receive()
+
+Receive a message from the WebSocket.
