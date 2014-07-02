@@ -6,8 +6,6 @@ module.exports = function (instructions) {
     Fiber(function () {
         var synchttp = new Synchttp();
         instructions(synchttp);
-        if (typeof synchttp.ws != 'undefined') {
-            synchttp.ws.close();
-        }
+        synchttp.wsCloseAll();
     }).run();
 };
