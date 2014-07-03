@@ -1,6 +1,6 @@
 {
     "name": "synchttp",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Synchronous Node.js HTTP for API testing/scripting/automation",
     "keywords": ["synchronous", "http", "api", "testing", "scripting", "automation"],
     "author": "Andrea Cardaci <cyrus.and@gmail.com>",
