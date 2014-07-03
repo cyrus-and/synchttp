@@ -120,6 +120,12 @@ synchttp(function (sh) {
 
 #### Connection parameters
 
+##### userAgent([userAgent])
+
+Default `synchttp/<version>`.
+
+Define the `User-Agent` to be send along with the HTTP requests.
+
 ##### httpContentType([contentType])
 
 Default `application/json`.
@@ -140,9 +146,15 @@ Default `localhost`.
 
 Define the host to be reached.
 
+##### secure([secure])
+
+Default `false`.
+
+Define whether a secure connection should be used or not..
+
 ##### port([port])
 
-Default `80`.
+Default `80` or `443` according to the `secure` parameter.
 
 Define the host port to be reached.
 
@@ -195,11 +207,11 @@ Perform an HTTP `DELETE`.
 #### WebSocket actions
 
 Send and receive messages through WebSockets; messages are properly
-parsed/stringified according to the value of the `wsContentType` parameter.
+parsed/formatted according to the value of the `wsContentType` parameter.
 
 ##### ws()
 
-Try to establish a WebSocket to the server. A new WebSocket is screated whenever
+Try to establish a WebSocket to the server. A new WebSocket is created whenever
 this method is called with a different resulting URL (according to the
 connection parameters).
 
