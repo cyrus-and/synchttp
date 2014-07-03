@@ -113,8 +113,8 @@ without arguments then the default value is restored:
 
 ```javascript
 synchttp(function (sh) {
-    sh.host('example.com').get(); // GET http://example.com:3000/
-    sh.host().get(); // GET http://localhost:3000/
+    sh.host('example.com').get(); // GET http://example.com/
+    sh.host().get(); // GET http://localhost/
 });
 ```
 
@@ -142,7 +142,7 @@ Define the host to be reached.
 
 ##### port([port])
 
-Default `3000`.
+Default `80`.
 
 Define the host port to be reached.
 

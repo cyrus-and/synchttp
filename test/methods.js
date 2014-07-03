@@ -43,7 +43,7 @@ describe('HTTP methods', function () {
     ['GET', 'POST', 'PUT', 'DELETE'].forEach(function (method) {
         it(method, function (done) {
             synchttp(function (sh) {
-                var response = sh[method.toLowerCase()]();
+                var response = sh.port(3000)[method.toLowerCase()]();
                 assert.equal(response.method, method);
                 done();
             });
@@ -59,7 +59,7 @@ describe('Default parameters', function () {
 
     it('with body', function (done) {
         synchttp(function (sh) {
-            var response = sh.post('foo');
+            var response = sh.port(3000).post('foo');
             assert.equal(response.contentType, 'application/json');
             assert.equal(response.contentLength, response.body.length);
             assert.equal(response.hostPort, 'localhost:3000');
@@ -70,7 +70,7 @@ describe('Default parameters', function () {
 
     it('without body', function (done) {
         synchttp(function (sh) {
-            var response = sh.post();
+            var response = sh.port(3000).post();
             assert.equal(response.contentType, undefined);
             assert.equal(response.contentLength, 0);
             assert.equal(response.hostPort, 'localhost:3000');
@@ -81,7 +81,7 @@ describe('Default parameters', function () {
 
     it('for methods that do not allow the body', function (done) {
         synchttp(function (sh) {
-            var response = sh.get();
+            var response = sh.port(3000).get();
             assert.equal(response.contentType, undefined);
             assert.equal(response.contentLength, undefined);
             assert.equal(response.hostPort, 'localhost:3000');
