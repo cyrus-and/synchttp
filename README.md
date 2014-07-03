@@ -11,9 +11,75 @@ Installation
 Sample API usage
 ----------------
 
+### Top 10 "interestingness" photos from Flickr
+
+This snippet fetches a list of 10 images from Flickr and dump: title, owned and
+URL. An additional request is performed to fetch the user name.
+
+```javascript
+var synchttp = require('synchttp');
+var API_KEY = '<YOUR APP KEY>';
+
+synchttp(function (sh) {
+    var response = sh
+        .secure(true)
+        .host('api.flickr.com')
+        .path('/services/rest/')
+        .query({
+            'api_key': API_KEY,
+            'method': 'flickr.interestingness.getList',
+            'format': 'json',
+            'nojsoncallback': 1,
+            'per_page': 10
+        }).get();
+    response.photos.photo.forEach(function (photo) {
+        var user = sh.query({
+            'api_key': API_KEY,
+            'method': 'flickr.people.getInfo',
+            'format': 'json',
+            'nojsoncallback': 1,
+            'user_id': photo.owner
+        }).get();
+        console.log(
+            '"%s" by "%s"\n[https://www.flickr.com/photos/%s/%s]\n',
+            photo.title,
+            user.person.username._content,
+            photo.owner,
+            photo.id
+        );
+    });
+});
+```
+
+### WebSocket echo test
+
+This is a demonstration of a simple WebSocket echo test.
+
+```javascript
+var synchttp = require('synchttp');
+
+synchttp(function (sh) {
+    sh.secure(true).host('echo.websocket.org').ws();
+    sh.send({ 'hello': 'world', 'number': 1 });
+    sh.send({ 'hello': 'world', 'number': 2 });
+    sh.send({ 'hello': 'world', 'number': 3 });
+    console.log(sh.receive().number);
+    console.log(sh.receive().number);
+    console.log(sh.receive().number);
+});
+```
+
+### Blog API
+
 Assume you have a dummy API for your blog that allows you to create a post and
-then to add some tags. In the following snippet the id of the new post is used
-to add the tags and to fetch the whole post resource.
+then to add some tags:
+
+    POST /api/posts/               # title, body
+    POST /api/posts/:post_id/tags/ # label
+    GET  /api/posts/:post_id
+
+In the following snippet, the id of the new post is used to add the tags and to
+finally fetch the whole post resource.
 
 ```javascript
 var synchttp = require('synchttp');
