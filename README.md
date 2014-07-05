@@ -13,8 +13,10 @@ Sample API usage
 
 ### Top 10 "interestingness" photos from Flickr
 
-This snippet fetches a list of 10 images from Flickr and dump: title, owned and
-URL. An additional request is performed to fetch the user name.
+This snippet fetches a list of 10 images from
+[Flickr](https://www.flickr.com/services/api/flickr.interestingness.getList.html)
+and dump: title, owned and URL. An additional request is performed to fetch the
+user name.
 
 ```javascript
 var synchttp = require('synchttp');
@@ -53,7 +55,8 @@ synchttp(function (sh) {
 
 ### WebSocket echo test
 
-This is a demonstration of a simple WebSocket echo test.
+This is a demonstration of a simple
+[WebSocket echo test](http://www.websocket.org/echo.html).
 
 ```javascript
 var synchttp = require('synchttp');
