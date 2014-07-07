@@ -1,7 +1,8 @@
 synchttp
 ========
 
-Synchronous Node.js HTTP for API testing/scripting/automation.
+Synchronous Node.js HTTP and WebSocket library for API testing, scripting or
+automation.
 
 Installation
 ------------
