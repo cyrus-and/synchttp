@@ -54,6 +54,31 @@ synchttp(function (sh) {
 });
 ```
 
+### randomuser.me + OpenWeatherMap
+
+Fetch a random user from ([randomuser.me](http://randomuser.me/)) and display
+some weather information about his city (from
+[openweathermap.org](http://openweathermap.org/)):
+
+```javascript
+var synchttp = require('synchttp');
+
+synchttp(function (sh) {
+    var response = sh.host('api.randomuser.me').query({
+        'gender': 'male'
+    }).get();
+    var user = response.results[0].user;
+    var weather = sh.host('api.openweathermap.org')
+                    .path('/data/2.5/weather').query({
+        'q': user.location.city
+    }).get();
+    console.log("Hello, I'm %s %s from %s!",
+                user.name.first, user.name.last, user.location.city);
+    console.log('Right now, here, the weather is: "%s".',
+                weather.weather[0].description);
+});
+```
+
 ### WebSocket echo test
 
 This is a demonstration of a simple
